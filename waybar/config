@@ -1,0 +1,123 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    // "width": 1280, // Waybar width
+    // Choose the order of the modules
+		"margin-left": 8,
+		"margin-right": 8,
+		"margin-top": 8,
+    "modules-left": [
+			"hyprland/workspaces#workspaces",
+		],
+    "modules-center": [
+			"custom/music-prev",
+			"custom/music",
+			"custom/music-next",
+		],
+    "modules-right": [
+			"pulseaudio", "clock",
+			"custom/cpu-temp",
+			"cpu",
+			"custom/gpu-temp",
+			"memory",
+			"tray", "custom/power"
+		],
+    "hyprland/workspaces#workspaces": {
+         // "disable-scroll": true,
+         "sort-by-name": true,
+				 "show-special": true,
+         "format": "{icon}",
+				 "format-icons": {
+					"1": "1",
+					"2": "2",
+					"3": "3",
+					"4": "4",
+					"5": "5",
+					"6": "6",
+					"7": "7",
+					"8": "8",
+					"9": "9",
+					"S": "",
+					"D": " ",
+				 }
+     },
+		"hyprland/workspaces#windows": {
+			"active-only": true,
+			"format": "{windows}",
+			"window-rewrite-default": " ",
+			"window-rewrite": {
+				"class<Godot>": "",
+				"title<.*youtube.*>": "",
+				"class<firefox>": "",
+				"class<firefox> title<.*github.*>": "",
+				"foot": "",
+				"code": "󰨞",
+			},
+		},
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    },
+		"custom/music-prev": {
+			"format": "󰒮",
+			"return-type": "json",
+			"interval": 1,
+			"exec": "$HOME/.config/waybar/playerctlmeta.sh control",
+			"on-click": "playerctl previous",
+			"tooltip": false,
+		},
+		"custom/music-next": {
+			"format": "󰒭",
+			"return-type": "json",
+			"interval": 1,
+			"exec": "$HOME/.config/waybar/playerctlmeta.sh control",
+			"on-click": "playerctl next",
+			"tooltip": false,
+		},
+    "custom/music": {
+        "escape": true,
+        "interval": 1,
+				"return-type": "json",
+        "exec": "$HOME/.config/waybar/playerctlmeta.sh",
+        "on-click": "playerctl play-pause",
+    },
+    "clock": {
+        "timezone": "America/Los_Angeles",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        // "format-alt": " {:%d/%m/%Y}",
+        "format": " {0:%H:%M}    {0:%d %b %Y}"
+    },
+		"custom/cpu-temp": {
+			"interval": 10,
+			"exec": "python3 $HOME/.config/waybar/customsensors.py cpu",
+			"return-type": "json",
+		},
+		"custom/gpu-temp": {
+			"interval": 10,
+			"exec": "python3 $HOME/.config/waybar/customsensors.py gpu",
+			"return-type": "json",
+		},
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{icon} {volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "default": ["", "", " "]
+        },
+        "on-click": "pavucontrol"
+    },
+		"cpu": {
+			"interval": 10,
+			"format": "{usage}%",
+		},
+		"memory": {
+			"interval": 10,
+			"format": "  {used}/{total}G",
+			"format-alt": "  {}%",
+		},
+    "custom/power": {
+        "tooltip": false,
+        "on-click": "wlogout &",
+        "format": "襤"
+    }
+}

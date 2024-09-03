@@ -1,0 +1,292 @@
+@import "mocha.css";
+
+* {
+  font-family: FantasqueSansMono Nerd Font;
+  min-height: 0;
+}
+
+#waybar {
+  background: @surface0;
+  border: 2px solid @lavender;
+  color: @text;
+  border-radius: 1rem;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+window.DP-1 {
+  font-size: 16px;
+}
+
+window.DP-2 {
+  font-size: 12px;
+}
+
+/* all widgets have padding */
+#workspaces.workspaces,
+#workspaces.windows,
+#custom-music,
+#custom-music-prev,
+#custom-music-next,
+#custom-cpu-temp,
+#custom-gpu-temp,
+#clock,
+#cpu,
+#memory,
+#pulseaudio,
+#tray,
+#custom-power
+{
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+/* all widgets but tray have background color */
+#workspaces.workspaces
+#workspaces.windows,
+#custom-music,
+#custom-music-prev,
+#custom-music-next,
+#null
+{
+  background-color: @selection2;
+}
+
+#pulseaudio,
+#clock,
+#null
+{
+  background-color: @selection3;
+}
+
+#custom-cpu-temp,
+#custom-gpu-temp,
+#memory,
+#cpu,
+#null
+{
+  background-color: @selection2;
+}
+
+#tray,
+#null
+{
+  background-color: @selection1;
+}
+
+#custom-power,
+#null
+{
+  background-color: @selection0;
+}
+
+/* large x padding left */
+/* #workspaces.workspaces, */
+#custom-music,
+/* #custom-music-prev, */
+/* #custom-music-next, */
+#custom-cpu-temp,
+/* #custom-gpu-temp, */
+#clock,
+/* #cpu, */
+/* #memory, */
+#pulseaudio,
+/* #tray, */
+#custom-power
+{
+  padding-left: 16px;
+}
+
+/* large x padding right */
+/* #workspaces.workspaces, */
+#custom-music,
+/* #custom-music-prev, */
+/* #custom-music-next, */
+/* #custom-cpu-temp, */
+/* #custom-gpu-temp, */
+/* #pulseaudio, */
+#clock,
+/* #cpu, */
+#memory,
+/* #tray, */
+#custom-power
+{
+  padding-right: 16px;
+}
+
+/* small x padding left */
+/* #workspaces.workspaces, */
+/* #custom-music, */
+#custom-music-prev,
+#custom-music-next,
+/* #clock, */
+/* #cpu, */
+/* #custom-gpu-temp, */
+/* #memory, */
+/* #pulseaudio, */
+/* #custom-lock, */
+/* #tray, */
+/* #custom-power, */
+#null
+{
+  padding-left: 12px;
+}
+
+/* small x padding right */
+/* #workspaces.workspaces, */
+/* #custom-music, */
+#custom-music-prev,
+#custom-music-next,
+/* #clock, */
+/* #cpu, */
+/* #memory, */
+/* #pulseaudio, */
+/* #custom-lock, */
+/* #tray, */
+/* #custom-power, */
+#null
+{
+  padding-right: 12px;
+}
+
+
+/* event smaller x padding left */
+#cpu,
+#custom-gpu-temp,
+#memory,
+#tray,
+#null
+{
+  padding-left: 8px;
+}
+
+/* even smaller x padding right */
+#tray,
+#null
+{
+  padding-right: 8px;
+}
+
+
+/* widgets width left border */
+#workspaces.workspaces,
+#workspaces.windows,
+#custom-music-prev,
+/* #custom-music, */
+/* #custom-music-next, */
+/* #custom-cpu-temp, */
+/* #custom-gpu-temp, */
+/* #clock, */
+/* #cpu, */
+/* #memory, */
+#pulseaudio,
+/* #tray, */
+/* #custom-power, */
+#null
+{
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  margin-left: 0.25rem;
+}
+
+
+/* widgets width right border */
+#workspaces.workspaces,
+#workspaces.windows,
+/* #custom-music-prev, */
+/* #custom-music, */
+#custom-music-next,
+/* #custom-cpu-temp, */
+/* #custom-gpu-temp, */
+/* #clock, */
+/* #cpu, */
+/* #memory, */
+/* #pulseaudio, */
+/* #tray, */
+#custom-power,
+#null
+{
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  margin-right: 0.25rem;
+}
+
+#custom-music:hover,
+#custom-music-prev:hover,
+#custom-music-next:hover,
+#null
+{
+  color: @lavender; 
+}
+
+
+/* CUSTOM STYLES */
+#custom-music {
+  min-width: 40em;
+}
+
+#workspaces.workspaces button {
+  border-radius: 1rem;
+  color: @lavender;
+  padding: 0.2rem;
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+}
+
+#workspaces.workspaces button:hover {
+  color: @blue;
+}
+
+#workspaces.workspaces button.active {
+  color: @red;
+}
+
+#workspaces.workspaces button.active:hover {
+  color: @maroon;
+}
+
+#workspaces.workspaces button.special {
+  color: @blue;
+}
+
+#workspaces.workspaces button.special.active {
+  color: @red;
+} 
+
+#pulseaudio,
+#null
+{
+  color: @red;
+}
+
+#clock,
+#null
+{
+  color: @text;
+}
+
+#custom-cpu-temp,
+#custom-gpu-temp,
+#cpu,
+#memory,
+#null {
+  color: @text;
+}
+
+
+#custom-power,
+#null
+{
+  color: @red;
+}
+
+/* opacity transition */
+#custom-music,
+#custom-music-prev,
+#custom-music-next,
+#null 
+{
+  transition: color 0.5s ease, opacity 0.5s ease;
+}
